@@ -360,6 +360,49 @@
       color: var(--bg);
     }
 
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: 0.58;
+    }
+
+    .form-popup {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 997;
+      display: grid;
+      gap: 8px;
+      width: min(520px, calc(100vw - 32px));
+      padding: 22px 24px 24px;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: var(--white);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(18px);
+      pointer-events: none;
+      transition: opacity 320ms ease, transform 320ms ease, visibility 320ms ease;
+    }
+
+    .form-popup.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .form-popup strong {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .form-popup span {
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
     .contact-footer {
       margin-top: 120px;
       padding: 40px 0 32px;
@@ -462,6 +505,22 @@
       .submit-button {
         font-size: 22px;
         padding: 15px 34px;
+      }
+
+      .form-popup {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        width: auto;
+        padding: 20px;
+      }
+
+      .form-popup strong {
+        font-size: 24px;
+      }
+
+      .form-popup span {
+        font-size: 18px;
       }
 
       .contact-footer {
@@ -634,6 +693,11 @@
     </footer>
   </main>
 
+  <div class="form-popup" id="formPopup" role="status" aria-live="polite" aria-atomic="true">
+    <strong id="formPopupTitle">Messaggio inviato</strong>
+    <span id="formPopupText">Grazie, abbiamo ricevuto la tua richiesta. Ti risponderemo al piu presto.</span>
+  </div>
+
   <script>
     (function () {
       var preloader = document.getElementById("preloader");
@@ -655,6 +719,76 @@
       } else {
         hidePreloader();
       }
+    })();
+
+    (function () {
+      var form = document.querySelector(".contact-form");
+      var popup = document.getElementById("formPopup");
+      var popupTitle = document.getElementById("formPopupTitle");
+      var popupText = document.getElementById("formPopupText");
+      var popupTimer;
+
+      function showPopup(title, text) {
+        if (!popup || !popupTitle || !popupText) {
+          return;
+        }
+
+        window.clearTimeout(popupTimer);
+        popupTitle.textContent = title;
+        popupText.textContent = text;
+        popup.classList.add("is-visible");
+
+        popupTimer = window.setTimeout(function () {
+          popup.classList.remove("is-visible");
+        }, 4200);
+      }
+
+      if (!form) {
+        return;
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        var submitButton = form.querySelector(".submit-button");
+        var originalText = submitButton ? submitButton.textContent : "";
+        var formData = new FormData(form);
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Invio...";
+        }
+
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        }).then(function (response) {
+          return response.json().catch(function () {
+            return {};
+          }).then(function (data) {
+            if (!response.ok || data.success === false) {
+              throw new Error("Form request failed");
+            }
+
+            form.reset();
+            showPopup("Messaggio inviato", "Grazie, abbiamo ricevuto la tua richiesta. Ti risponderemo al piu presto.");
+          });
+        }).catch(function () {
+          showPopup("Messaggio non inviato", "Riprova tra qualche istante oppure scrivici direttamente via email.");
+        }).finally(function () {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }
+        });
+      });
     })();
 
     (function () {
