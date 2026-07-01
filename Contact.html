@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="browser_logo_4_rettangoli_nero.ico" type="image/x-icon">
+  <title>Studio Nero - Contatti</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #000000;
+      --white: #ffffff;
+      --muted: #8A8A8A;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0;
+      line-height: 1.1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    body::selection {
+      background: var(--white);
+      color: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .preloader,
+    .page-transition {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      transition: opacity 650ms ease, visibility 650ms ease;
+    }
+
+    .preloader {
+      z-index: 999;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .page-transition {
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .preloader.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .page-transition.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    @keyframes logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      padding: 0 16px;
+      background: #000000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 8px);
+      grid-template-rows: repeat(3, 8px);
+      width: 32px;
+      height: 32px;
+      gap: 3px;
+      flex: 0 0 auto;
+      color: var(--white);
+      transform-origin: center;
+      animation: logo-spin 620ms ease-out 1;
+    }
+
+    .logo.is-spinning {
+      animation: logo-spin 420ms ease-in-out 1;
+    }
+
+    .logo span,
+    .preloader-logo span,
+    .page-transition-logo span {
+      display: block;
+      background: currentColor;
+    }
+
+    .logo span:nth-child(1),
+    .preloader-logo span:nth-child(1),
+    .page-transition-logo span:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1;
+    }
+
+    .logo span:nth-child(2),
+    .preloader-logo span:nth-child(2),
+    .page-transition-logo span:nth-child(2) {
+      grid-column: 3;
+      grid-row: 1 / 3;
+    }
+
+    .logo span:nth-child(3),
+    .preloader-logo span:nth-child(3),
+    .page-transition-logo span:nth-child(3) {
+      grid-column: 1;
+      grid-row: 2 / 4;
+    }
+
+    .logo span:nth-child(4),
+    .preloader-logo span:nth-child(4),
+    .page-transition-logo span:nth-child(4) {
+      grid-column: 2 / 4;
+      grid-row: 3;
+    }
+
+    .preloader-logo,
+    .page-transition-logo {
+      display: grid;
+      grid-template-columns: repeat(3, 36px);
+      grid-template-rows: repeat(3, 36px);
+      width: 150px;
+      height: 150px;
+      gap: 15px;
+      color: var(--white);
+      transform-origin: center;
+    }
+
+    .preloader-logo {
+      animation: logo-spin 900ms ease-in-out 1;
+    }
+
+    .page-transition-logo {
+      animation: none;
+    }
+
+    .page-transition.is-active .page-transition-logo {
+      animation: logo-spin 620ms ease-in-out 1;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(22px, 3vw, 52px);
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      font-size: clamp(22px, 2vw, 34px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .main-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .main-nav a {
+      color: var(--muted);
+      transition: color 280ms ease;
+    }
+
+    .main-nav a[aria-current="page"],
+    .main-nav a:hover {
+      color: var(--white);
+    }
+
+    main {
+      width: 100%;
+      padding: 0 16px 48px;
+    }
+
+    .contact-hero {
+      min-height: 500px;
+      padding-top: 120px;
+      display: grid;
+      grid-template-columns: minmax(0, 56%) minmax(220px, 1fr);
+      column-gap: 16px;
+      align-items: start;
+    }
+
+    .contact-copy {
+      max-width: 720px;
+    }
+
+    .contact-title {
+      margin: 0;
+      max-width: 720px;
+      color: var(--white);
+      font-size: clamp(68px, 5.8vw, 96px);
+      font-weight: 500;
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .contact-title span {
+      display: block;
+    }
+
+    .contact-description {
+      margin: 46px 0 0;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .contact-social {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-self: start;
+      padding-top: 210px;
+      gap: 4px;
+    }
+
+    .contact-social a,
+    .footer-link {
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.08;
+      transition: color 260ms ease;
+    }
+
+    .contact-social a:hover,
+    .footer-link:hover {
+      color: var(--white);
+    }
+
+    .contact-form-section {
+      max-width: 640px;
+      padding-top: 20px;
+    }
+
+    .form-intro {
+      margin: 0 0 38px;
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 22px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .field {
+      display: grid;
+      gap: 10px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: #D9D9D9;
+      border: 0;
+      border-radius: 0;
+      color: #000000;
+      font-size: 22px;
+      line-height: 1.2;
+      outline: none;
+    }
+
+    .field input,
+    .field select {
+      height: 56px;
+      padding: 0 16px;
+    }
+
+    .field textarea {
+      min-height: 170px;
+      padding: 16px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      background: #E0E0E0;
+    }
+
+    .submit-button {
+      justify-self: start;
+      margin-top: 10px;
+      padding: 16px 38px;
+      border: 1px solid var(--white);
+      border-radius: 0;
+      background: transparent;
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 260ms ease, color 260ms ease;
+    }
+
+    .submit-button:hover {
+      background: var(--white);
+      color: var(--bg);
+    }
+
+    .contact-footer {
+      margin-top: 120px;
+      padding: 40px 0 32px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .footer-column {
+      display: grid;
+      align-content: start;
+      gap: 3px;
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .footer-column:last-child {
+      justify-self: end;
+    }
+
+    @media (max-width: 680px) {
+      .site-header {
+        min-height: 64px;
+        gap: 18px;
+        padding: 16px 12px 12px;
+      }
+
+      .logo {
+        width: 28px;
+        height: 28px;
+        grid-template-columns: repeat(3, 7px);
+        grid-template-rows: repeat(3, 7px);
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+        width: calc(100vw - 64px);
+        padding-bottom: 4px;
+        font-size: 20px;
+        gap: 24px;
+      }
+
+      main {
+        padding: 0 16px 40px;
+      }
+
+      .contact-hero {
+        min-height: auto;
+        padding-top: 88px;
+        grid-template-columns: 1fr;
+      }
+
+      .contact-title {
+        max-width: 100%;
+        font-size: 50px;
+        line-height: 1;
+      }
+
+      .contact-description {
+        margin-top: 34px;
+        font-size: 22px;
+        line-height: 1.18;
+      }
+
+      .contact-social {
+        padding-top: 32px;
+      }
+
+      .contact-social a,
+      .footer-link,
+      .form-intro,
+      .field label {
+        font-size: 22px;
+      }
+
+      .contact-form-section {
+        width: 100%;
+        max-width: none;
+        padding-top: 72px;
+      }
+
+      .contact-form {
+        max-width: none;
+        gap: 20px;
+      }
+
+      .field input,
+      .field select {
+        height: 52px;
+        font-size: 20px;
+      }
+
+      .field textarea {
+        min-height: 150px;
+        font-size: 20px;
+      }
+
+      .submit-button {
+        font-size: 22px;
+        padding: 15px 34px;
+      }
+
+      .contact-footer {
+        margin-top: 92px;
+        padding: 36px 0 28px;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-column {
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .footer-column:last-child {
+        justify-self: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-logo" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="page-transition" id="pageTransition" aria-hidden="true">
+    <div class="page-transition-logo" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <header class="site-header" aria-label="Navigazione principale">
+    <a class="logo" href="Index.html" aria-label="Studio Nero">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Menu">
+      <a href="Index.html#portfolio">Portfolio</a>
+      <a href="Contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-hero" aria-label="Contatti">
+      <div class="contact-copy">
+        <h1 class="contact-title">
+          <span>Wanna contact</span>
+          <span>the Industries?</span>
+        </h1>
+        <p class="contact-description">
+          Ti va di fare due chiacchiere con noi? Che tu stia cercando un partner creativo, un'idea fuori dagli schemi o semplicemente voglia conoscerci meglio, qui sei nel posto giusto.
+        </p>
+      </div>
+
+      <nav class="contact-social" aria-label="Social">
+        <a href="#" aria-label="Linkedin">Linkedin</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </nav>
+    </section>
+
+    <section class="contact-form-section" aria-label="Form di contatto">
+      <p class="form-intro">Compila il form e ti risponderemo al pi&ugrave; presto.</p>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="given-name">
+        </div>
+
+        <div class="field">
+          <label for="cognome">Cognome</label>
+          <input type="text" id="cognome" name="cognome" autocomplete="family-name">
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="cellulare">Cellulare</label>
+          <input type="tel" id="cellulare" name="cellulare" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="azienda">Azienda / Organizzazione</label>
+          <input type="text" id="azienda" name="azienda" autocomplete="organization">
+        </div>
+
+        <div class="field">
+          <label for="ruolo">Ruolo</label>
+          <input type="text" id="ruolo" name="ruolo" autocomplete="organization-title">
+        </div>
+
+        <div class="field">
+          <label for="motivo">Motivo del contatto</label>
+          <select id="motivo" name="motivo">
+            <option selected>Business</option>
+            <option>Partnership</option>
+            <option>Media &amp; Press</option>
+            <option>Careers</option>
+            <option>Eventi</option>
+            <option>Altro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="messaggio">Messaggio</label>
+          <textarea id="messaggio" name="messaggio"></textarea>
+        </div>
+
+        <button class="submit-button" type="submit">Invia</button>
+      </form>
+    </section>
+
+    <footer class="contact-footer" aria-label="Informazioni aziendali">
+      <div class="footer-column">
+        <span>Studio Nero Srl</span>
+        <span>Viale Venezia 20,</span>
+        <span>25123 BS</span>
+      </div>
+
+      <div class="footer-column">
+        <a class="footer-link" href="tel:+390302385037">+39 030 2385037</a>
+        <a class="footer-link" href="mailto:info@nomeazienda.com">info@nomeazienda.com</a>
+        <span>P.IVA 01276100524</span>
+      </div>
+
+      <div class="footer-column">
+        <a class="footer-link" href="#">Politica ambientale</a>
+        <a class="footer-link" href="#">Eng | Privacy</a>
+        <a class="footer-link" href="#">Preferences</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var preloader = document.getElementById("preloader");
+      var hidden = false;
+
+      function hidePreloader() {
+        if (hidden || !preloader) {
+          return;
+        }
+
+        hidden = true;
+        window.setTimeout(function () {
+          preloader.classList.add("is-hidden");
+        }, 900);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", hidePreloader);
+      } else {
+        hidePreloader();
+      }
+    })();
+
+    (function () {
+      var logo = document.querySelector(".logo");
+      var pageTransition = document.getElementById("pageTransition");
+      var links = document.querySelectorAll("a[href]");
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var rawHref = link.getAttribute("href");
+
+          if (!rawHref || rawHref.charAt(0) === "#" || rawHref.indexOf("mailto:") === 0 || rawHref.indexOf("tel:") === 0) {
+            return;
+          }
+
+          var target = new URL(rawHref, window.location.href);
+
+          if (target.href === window.location.href) {
+            return;
+          }
+
+          if ((target.protocol === "http:" || target.protocol === "https:") && target.origin !== window.location.origin) {
+            return;
+          }
+
+          event.preventDefault();
+
+          if (pageTransition) {
+            pageTransition.classList.add("is-active");
+          }
+
+          if (logo) {
+            logo.classList.remove("is-spinning");
+            void logo.offsetWidth;
+            logo.classList.add("is-spinning");
+          }
+
+          window.setTimeout(function () {
+            window.location.href = target.href;
+          }, 560);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
