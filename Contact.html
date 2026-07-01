@@ -550,56 +550,67 @@
     <section class="contact-form-section" aria-label="Form di contatto">
       <p class="form-intro">Compila il form e ti risponderemo al pi&ugrave; presto.</p>
 
-      <form class="contact-form" action="#" method="post">
-        <div class="field">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" autocomplete="given-name">
-        </div>
+ <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
 
-        <div class="field">
-          <label for="cognome">Cognome</label>
-          <input type="text" id="cognome" name="cognome" autocomplete="family-name">
-        </div>
+  <!-- Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value="2603d450-2cf1-46f2-bec2-61ac687fcd99">
 
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email">
-        </div>
+  <!-- Email settings -->
+  <input type="hidden" name="subject" value="Nuovo messaggio dal sito">
+  <input type="hidden" name="from_name" value="Portfolio Contact Form">
 
-        <div class="field">
-          <label for="cellulare">Cellulare</label>
-          <input type="tel" id="cellulare" name="cellulare" autocomplete="tel">
-        </div>
+  <!-- Anti spam invisibile -->
+  <input type="checkbox" name="botcheck" style="display: none;">
 
-        <div class="field">
-          <label for="azienda">Azienda / Organizzazione</label>
-          <input type="text" id="azienda" name="azienda" autocomplete="organization">
-        </div>
+  <div class="field">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" autocomplete="given-name" required>
+  </div>
 
-        <div class="field">
-          <label for="ruolo">Ruolo</label>
-          <input type="text" id="ruolo" name="ruolo" autocomplete="organization-title">
-        </div>
+  <div class="field">
+    <label for="cognome">Cognome</label>
+    <input type="text" id="cognome" name="cognome" autocomplete="family-name">
+  </div>
 
-        <div class="field">
-          <label for="motivo">Motivo del contatto</label>
-          <select id="motivo" name="motivo">
-            <option selected>Business</option>
-            <option>Partnership</option>
-            <option>Media &amp; Press</option>
-            <option>Careers</option>
-            <option>Eventi</option>
-            <option>Altro</option>
-          </select>
-        </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" autocomplete="email" required>
+  </div>
 
-        <div class="field">
-          <label for="messaggio">Messaggio</label>
-          <textarea id="messaggio" name="messaggio"></textarea>
-        </div>
+  <div class="field">
+    <label for="cellulare">Cellulare</label>
+    <input type="tel" id="cellulare" name="cellulare" autocomplete="tel">
+  </div>
 
-        <button class="submit-button" type="submit">Invia</button>
-      </form>
+  <div class="field">
+    <label for="azienda">Azienda / Organizzazione</label>
+    <input type="text" id="azienda" name="azienda" autocomplete="organization">
+  </div>
+
+  <div class="field">
+    <label for="ruolo">Ruolo</label>
+    <input type="text" id="ruolo" name="ruolo" autocomplete="organization-title">
+  </div>
+
+  <div class="field">
+    <label for="motivo">Motivo del contatto</label>
+    <select id="motivo" name="motivo">
+      <option selected>Business</option>
+      <option>Partnership</option>
+      <option>Media &amp; Press</option>
+      <option>Careers</option>
+      <option>Eventi</option>
+      <option>Altro</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="messaggio">Messaggio</label>
+    <textarea id="messaggio" name="messaggio" required></textarea>
+  </div>
+
+  <button class="submit-button" type="submit">Invia</button>
+</form>
     </section>
 
     <footer class="contact-footer" aria-label="Informazioni aziendali">
