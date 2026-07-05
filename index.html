@@ -167,9 +167,23 @@
     }
 
     .project {
+      position: relative;
       min-width: 0;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+    }
+
+    .project-hitarea {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      display: block;
+    }
+
+    .project-hitarea:focus-visible {
+      outline: 1px solid var(--white);
+      outline-offset: 5px;
     }
 
     .visual {
@@ -482,7 +496,7 @@
 </head>
 <body>
   <header class="site-header" aria-label="Navigazione principale">
-    <a class="logo" href="/" aria-label="Studio Nero">
+    <a class="logo" href="Index.html#portfolio" aria-label="Studio Nero">
       <span></span>
       <span></span>
       <span></span>
@@ -490,7 +504,7 @@
     </a>
 
     <nav class="main-nav" aria-label="Menu">
-      <a href="/" aria-current="page">Portfolio</a>
+      <a href="Index.html#portfolio" aria-current="page">Portfolio</a>
       <a href="Contact.html">Contact</a>
     </nav>
   </header>
@@ -498,245 +512,81 @@
   <main>
     <section class="portfolio-grid" id="portfolio" aria-label="Portfolio progetti">
       <article class="project">
-        <figure class="visual tall overlay-pink">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=82" alt="Installazione luminosa e folla durante un evento speciale" loading="eager">
+        <figure class="visual tall overlay-orange">
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=82" alt="Sala ristorante elegante con tavoli apparecchiati e luce calda" loading="eager">
         </figure>
-        <h2 class="project-title">Monopoly &ndash; Attivazione Speciale</h2>
-        <span class="project-meta">Experience design / retail activation</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual square block block-orange">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>1000</span><span>Miglia</span></div>
-            <div class="poster-number">24</div>
-            <div class="poster-footer"><span>Live</span><span>Race</span></div>
-          </div>
-        </figure>
-        <h2 class="project-title">1000 Miglia &ndash; Live Coverage</h2>
-        <span class="project-meta">Social newsroom / contenuti live</span>
+        <h2 class="project-title">Osteria Lume &ndash; Sito Web</h2>
+        <span class="project-meta">Web design / fotografia / menu digitale</span>
       </article>
 
       <article class="project">
         <figure class="visual overlay-cyan">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=82" alt="Team creativo riunito intorno a un tavolo di lavoro" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=82" alt="Cucina di ristorante durante la preparazione dei piatti" loading="lazy">
         </figure>
-        <h2 class="project-title">Allitude &ndash; Sito Web</h2>
-        <span class="project-meta">UX / digital platform</span>
+        <h2 class="project-title">Ristorante Radice &ndash; Identit&agrave; Digitale</h2>
+        <span class="project-meta">Logo refresh / sito one-page / social kit</span>
       </article>
 
       <article class="project">
-        <figure class="visual block block-blue">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>Atl</span><span>Identity</span></div>
-            <div class="poster-word">Deep<br>Blue</div>
-            <div class="poster-footer"><span>System</span><span>01</span></div>
-          </div>
+        <figure class="visual square overlay-pink">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=82" alt="Pizza artigianale con ingredienti freschi appena servita" loading="lazy">
         </figure>
-        <h2 class="project-title">Atlantis &ndash; Brand Identity</h2>
-        <span class="project-meta">Logo system / visual language</span>
+        <h2 class="project-title">Forno Vivo &ndash; Brand Identity</h2>
+        <span class="project-meta">Identit&agrave; visiva / packaging / social</span>
       </article>
 
       <article class="project">
         <figure class="visual tall overlay-yellow">
-          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=82" alt="Architettura urbana monumentale vista dal basso" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=82" alt="Parrucchiera al lavoro in un salone contemporaneo" loading="lazy">
         </figure>
-        <h2 class="project-title">Banca Sella &ndash; Campagna Affissioni</h2>
-        <span class="project-meta">OOH / key visual</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual square block block-pink">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>Bella</span><span>Sprizz</span></div>
-            <div class="poster-word">Aper<br>itivo</div>
-            <div class="poster-footer"><span>Pack</span><span>Brand</span></div>
-          </div>
-        </figure>
-        <h2 class="project-title">Bella Sprizz &ndash; Brand Identity</h2>
-        <span class="project-meta">Packaging / brand launch</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual overlay-mint">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=82" alt="Interno di studio contemporaneo con postazioni e luce naturale" loading="lazy">
-        </figure>
-        <h2 class="project-title">BOT &ndash; Sito Web</h2>
-        <span class="project-meta">Interface / content architecture</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual wide overlay-blue">
-          <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=82" alt="Facciata architettonica geometrica e colorata" loading="lazy">
-        </figure>
-        <h2 class="project-title">Brescia &ndash; City Branding</h2>
-        <span class="project-meta">Sistema urbano / place identity</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual tall overlay-pink">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=82" alt="Ritratto editoriale fashion con styling intenso" loading="lazy">
-        </figure>
-        <h2 class="project-title">Forma Studio &ndash; Shooting</h2>
-        <span class="project-meta">Editorial / art direction</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual block block-mint">
-          <div class="poster-grid" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-          </div>
-        </figure>
-        <h2 class="project-title">Neutra &ndash; Comunicazione Digitale</h2>
-        <span class="project-meta">Content system / social design</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual overlay-orange">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=82" alt="Palco live con luci e pubblico in atmosfera da campagna video" loading="lazy">
-        </figure>
-        <h2 class="project-title">Velasca &ndash; Campagna Video</h2>
-        <span class="project-meta">Film craft / campaign assets</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual square block block-yellow">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>Lumen</span><span>Brand</span></div>
-            <div class="poster-word">Light<br>Index</div>
-            <div class="poster-footer"><span>03</span><span>System</span></div>
-          </div>
-        </figure>
-        <h2 class="project-title">Lumen &ndash; Brand Identity</h2>
-        <span class="project-meta">Naming / motion-ready identity</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual tall overlay-orange">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82" alt="Grande interno urbano con superfici materiche e luce calda" loading="lazy">
-        </figure>
-        <h2 class="project-title">Officine Nord &ndash; Campagna Affissioni</h2>
-        <span class="project-meta">Urban posters / production</span>
+        <h2 class="project-title">Atelier Taglio &ndash; Sito Web</h2>
+        <span class="project-meta">Sito vetrina / booking / contenuti social</span>
       </article>
 
       <article class="project">
         <figure class="visual overlay-blue">
-          <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=82" alt="Concerto con luce blu e pubblico davanti al palco" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=82" alt="Cantiere edile con struttura in costruzione e operai" loading="lazy">
         </figure>
-        <h2 class="project-title">Sanremo Lab &ndash; Attivazione Speciale</h2>
-        <span class="project-meta">Event format / live content</span>
+        <h2 class="project-title">Edilnova &ndash; Sito Aziendale</h2>
+        <span class="project-meta">Website / portfolio lavori / lead form</span>
       </article>
 
       <article class="project">
-        <figure class="visual square overlay-cyan">
-          <img src="https://images.unsplash.com/photo-1526947425960-945c6e728861?auto=format&fit=crop&w=1200&q=82" alt="Still life di prodotto con colori saturi su sfondo chiaro" loading="lazy">
+        <figure class="visual square overlay-mint">
+          <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1200&q=82" alt="Tatuatore mentre lavora su un disegno in studio" loading="lazy">
         </figure>
-        <h2 class="project-title">Materia &ndash; Shooting</h2>
-        <span class="project-meta">Product still life / set design</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual block block-cyan">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>Civica</span><span>Map</span></div>
-            <div class="poster-lines" aria-hidden="true">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="poster-footer"><span>City</span><span>Grid</span></div>
-          </div>
-        </figure>
-        <h2 class="project-title">Civica &ndash; City Branding</h2>
-        <span class="project-meta">Wayfinding / visual territory</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual overlay-mint">
-          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=82" alt="Studio creativo con scrivanie, sedute e pareti vetrate" loading="lazy">
-        </figure>
-        <h2 class="project-title">Radius &ndash; Sito Web</h2>
-        <span class="project-meta">Design system / front-end</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual square block block-mint">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>Terra</span><span>Firma</span></div>
-            <div class="poster-word">Local<br>Goods</div>
-            <div class="poster-footer"><span>Mark</span><span>Field</span></div>
-          </div>
-        </figure>
-        <h2 class="project-title">Terra Firma &ndash; Brand Identity</h2>
-        <span class="project-meta">Retail identity / packaging</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual tall overlay-yellow">
-          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=82" alt="Scena editoriale moda con posa dinamica e abiti colorati" loading="lazy">
-        </figure>
-        <h2 class="project-title">Miraggio &ndash; Campagna Video</h2>
-        <span class="project-meta">Fashion film / art direction</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual block block-blue">
-          <div class="poster-layout">
-            <div class="poster-kicker"><span>Open</span><span>Data</span></div>
-            <div class="poster-number">01</div>
-            <div class="poster-footer"><span>Digital</span><span>Flow</span></div>
-          </div>
-        </figure>
-        <h2 class="project-title">Sella Open &ndash; Comunicazione Digitale</h2>
-        <span class="project-meta">Launch content / social toolkit</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual overlay-orange">
-          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=82" alt="Strada scenografica e paesaggio architettonico per affissioni" loading="lazy">
-        </figure>
-        <h2 class="project-title">Scala &ndash; Campagna Affissioni</h2>
-        <span class="project-meta">Poster series / media planning</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual tall overlay-pink">
-          <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=82" alt="Interno fotografico con oggetti, texture e atmosfera editoriale" loading="lazy">
-        </figure>
-        <h2 class="project-title">Corte &ndash; Shooting</h2>
-        <span class="project-meta">Interior editorial / styling</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual block block-yellow">
-          <div class="poster-grid" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i>
-          </div>
-        </figure>
-        <h2 class="project-title">Futura &ndash; Sito Web</h2>
-        <span class="project-meta">Interactive editorial / UI</span>
-      </article>
-
-      <article class="project">
-        <figure class="visual overlay-cyan">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=82" alt="Ambiente culturale contemporaneo con arredi e pareti chiare" loading="lazy">
-        </figure>
-        <h2 class="project-title">Archivio 91 &ndash; Brand Identity</h2>
-        <span class="project-meta">Cultural branding / editorial kit</span>
+        <h2 class="project-title">Inkline Studio &ndash; Portfolio</h2>
+        <span class="project-meta">Sito portfolio / booking / art direction</span>
       </article>
     </section>
 
   </main>
   <script>
     (function () {
+      var projectRoutes = [
+        "projects/osteria-lume-sito-web.html",
+        "projects/ristorante-radice-identita-digitale.html",
+        "projects/forno-vivo-brand-identity.html",
+        "projects/atelier-taglio-sito-web.html",
+        "projects/edilnova-sito-aziendale.html",
+        "projects/inkline-studio-portfolio.html"
+      ];
+
+      document.querySelectorAll(".project").forEach(function (project, index) {
+        var href = projectRoutes[index];
+        var title = project.querySelector(".project-title");
+
+        if (!href || project.querySelector(".project-hitarea")) {
+          return;
+        }
+
+        var link = document.createElement("a");
+        link.className = "project-hitarea";
+        link.href = href;
+        link.setAttribute("aria-label", "Apri progetto " + (title ? title.textContent : index + 1));
+        project.appendChild(link);
+      });
+
       var logo = document.querySelector(".logo");
       var links = document.querySelectorAll("a[href]");
 
