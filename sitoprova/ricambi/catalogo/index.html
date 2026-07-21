@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogo ricambi auto storiche | Ricambi d'Epoca</title>
+  <meta name="description" content="Catalogo ricambi per Fiat Topolino, Balilla, Lancia Fulvia, Autobianchi Bianchina e altre auto storiche con ricerca e filtri dinamici.">
+  <link rel="canonical" href="https://ricambi-epoca.it/catalogo/">
+  <link rel="alternate" hreflang="it" href="https://ricambi-epoca.it/catalogo/">
+  <link rel="alternate" hreflang="en" href="https://ricambi-epoca.it/en.html">
+  <link rel="alternate" hreflang="de" href="https://ricambi-epoca.it/ger.html">
+  <meta property="og:title" content="Catalogo ricambi auto storiche">
+  <meta property="og:description" content="Ricerca per marca, modello, anno, categoria e disponibilita'.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ricambi-epoca.it/catalogo/">
+  <meta property="og:image" content="https://ricambi-epoca.it/images/nuovo.jpg">
+  <link rel="icon" href="../images/logoricambi.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="is-preload" data-root="../">
+  <a class="skip-link" href="#contenuto">Salta al catalogo</a>
+
+  <header class="site-header" aria-label="Navigazione principale">
+    <a class="brand-mark" href="../index.html" aria-label="Ricambi d'Epoca home">
+      <img src="../images/logoricambi.jpg" alt="Logo Ricambi d'Epoca">
+      <span>
+        <span class="brand-name">Ricambi d'Epoca</span>
+        <span class="brand-place">Catalogo tecnico</span>
+      </span>
+    </a>
+    <nav class="site-nav" data-site-nav>
+      <a href="../catalogo/">Catalogo</a>
+      <a href="../index.html#marche">Marche e modelli</a>
+      <a href="../index.html#lavorazioni">Lavorazioni</a>
+      <a href="../index.html#chi-siamo">Chi siamo</a>
+      <a href="../index.html#auto">Auto in vendita</a>
+      <a href="../index.html#contatti">Contatti</a>
+    </nav>
+    <div class="header-tools">
+      <div class="language-switch" aria-label="Lingue">
+        <a class="is-active" href="../index.html" lang="it">IT</a>
+        <a href="../en.html" lang="en">EN</a>
+        <a href="../ger.html" lang="de">DE</a>
+      </div>
+      <a class="whatsapp-head" href="https://wa.me/393357413636">WhatsApp</a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main id="contenuto" class="page">
+    <section class="section">
+      <div class="section-inner tight">
+        <nav class="breadcrumb" aria-label="Percorso">
+          <a href="../index.html">Home</a>
+          <span>/</span>
+          <span>Catalogo</span>
+        </nav>
+        <p class="section-kicker">Catalogo</p>
+        <h1 class="section-title">Ricambi per auto storiche, filtrabili in tempo reale.</h1>
+        <p class="section-lead">Usa marca, modello, anno, categoria e disponibilita' per isolare rapidamente il componente. I risultati si aggiornano senza ricaricare la pagina.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="catalog-layout">
+          <aside class="catalog-sidebar" data-filter-panel aria-label="Filtri catalogo">
+            <div class="filter-header">
+              <h2>Filtri</h2>
+              <button class="button-small" type="button" data-clear-filters>Elimina filtri</button>
+            </div>
+            <div class="filter-group">
+              <label for="catalog-search">Ricerca</label>
+              <input id="catalog-search" type="search" data-filter="q" placeholder="Ricambio, modello o codice">
+            </div>
+            <div class="filter-group">
+              <label for="filter-brand">Marca</label>
+              <select id="filter-brand" data-filter="brand"></select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-model">Modello</label>
+              <select id="filter-model" data-filter="model"></select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-year">Anno</label>
+              <input id="filter-year" type="search" data-filter="year" placeholder="Esempio 1955">
+            </div>
+            <div class="filter-group">
+              <label for="filter-category">Categoria</label>
+              <select id="filter-category" data-filter="category"></select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-availability">Disponibilita'</label>
+              <select id="filter-availability" data-filter="availability">
+                <option value="">Tutte</option>
+                <option value="pronta">Disponibile</option>
+                <option value="limitata">Limitata</option>
+                <option value="su-richiesta">Su richiesta</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-sort">Ordinamento</label>
+              <select id="filter-sort" data-filter="sort">
+                <option value="recent">Prodotti piu' recenti</option>
+                <option value="alpha">Ordine alfabetico</option>
+              </select>
+            </div>
+            <div class="active-filters" data-active-filters aria-live="polite"></div>
+          </aside>
+
+          <div class="catalog-content">
+            <div class="catalog-toolbar">
+              <p data-result-count>Ricambi trovati</p>
+              <button class="filter-toggle" type="button" data-filter-toggle aria-expanded="false">Filtri</button>
+            </div>
+            <div class="product-grid" data-catalog-grid aria-live="polite"></div>
+            <div class="load-more-wrap">
+              <button class="load-more" type="button" data-load-more>Carica altri ricambi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-block">
+        <h2>Ricambi d'Epoca</h2>
+        <p>Archivio tecnico di ricambi, riproduzioni e componenti su richiesta per auto storiche.</p>
+      </div>
+      <div class="footer-block">
+        <h3>Catalogo</h3>
+        <a href="?brand=Fiat">Fiat</a>
+        <a href="?brand=Lancia">Lancia</a>
+        <a href="?brand=Autobianchi">Autobianchi</a>
+        <a href="?category=Freni">Freni</a>
+      </div>
+      <div class="footer-block">
+        <h3>Contatti</h3>
+        <a href="tel:+393357413636">+39 335 741 3636</a>
+        <a href="mailto:info@ricambi-epoca.it">info@ricambi-epoca.it</a>
+        <a href="https://wa.me/393357413636">WhatsApp</a>
+      </div>
+      <div class="footer-block">
+        <h3>Informazioni</h3>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../cookie-policy.html">Cookie Policy</a>
+        <a href="../condizioni-vendita.html">Condizioni di vendita</a>
+        <a href="../spedizioni-resi.html">Spedizioni e resi</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; Ricambi d'Epoca. P.IVA 03899700987.</span>
+      <span>Catalogo aggiornabile tramite dati prodotto condivisi.</span>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/393357413636" aria-label="Apri WhatsApp">WA</a>
+  <script src="../assets/js/products.js"></script>
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>
